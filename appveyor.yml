@@ -32,8 +32,8 @@ init:
   - "ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
 
 install:
-  - "appveyor\\setup_build_env.cmd"
   - "powershell appveyor\\install.ps1"
+  - '"C:\Program Files\Microsoft SDKs\Windows\%WINDOWS_SDK_VERSION%\Bin\SetEnv.cmd" /x64 /release'
 
 build: off
 
