@@ -4,6 +4,10 @@
 ::
 :: More details at:
 :: https://github.com/cython/cython/wiki/64BitCythonExtensionsOnWindows
+::
+:: Need delayed expansion set in order to run the v7.0 SDK SetEnv script
+
+setlocal EnableDelayedExpansion
 
 IF "%PYTHON_ARCH%"=="64" (
     ECHO Configuring environment to build with MSVC on a 64bit architecture
