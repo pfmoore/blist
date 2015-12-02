@@ -20,6 +20,7 @@ echo ----------------------------------------------------------------------
 set
 echo ----------------------------------------------------------------------
 "%PYTHON%\python.exe" -c "from distutils.msvc9compiler import MSVCCompiler; print(MSVCCompiler().find_exe('cl.exe'))"
+"%PYTHON%\python.exe" -c "import os; print('DISTUTILS_USE_SDK' in os.environ and 'MSSdk' in os.environ)"
 echo ----------------------------------------------------------------------
 
 CALL %*
