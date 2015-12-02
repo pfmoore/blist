@@ -12,16 +12,10 @@ IF "%DISTUTILS_USE_SDK%"=="1" (
     "C:\Program Files\Microsoft SDKs\Windows\v7.1\Setup\WindowsSdkVer.exe" -q -version:v7.1
     CALL "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64 /release
     SET MSSdk=1
+    REM Need the following to allow tox to see the SDK compiler
+    SET TOX_TESTENV_PASSENV=DISTUTILS_USE_SDK MSSdk INCLUDE LIB
 ) ELSE (
     ECHO Using default MSVC build environment
 )
 
-echo ----------------------------------------------------------------------
-set
-echo ----------------------------------------------------------------------
-"%PYTHON%\python.exe" -c "from distutils.msvc9compiler import MSVCCompiler; print(MSVCCompiler().find_exe('cl.exe'))"
-"%PYTHON%\python.exe" -c "import os; print('DISTUTILS_USE_SDK' in os.environ and 'MSSdk' in os.environ)"
-echo ----------------------------------------------------------------------
-
-set TOX_TESTENV_PASSENV=DISTUTILS_USE_SDK MSSdk INCLUDE LIB
 CALL %*
