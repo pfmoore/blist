@@ -21,7 +21,6 @@ environment:
 #      DISTUTILS_USE_SDK: "1"
 
     - PYTHON: "C:\\Python34-x64"
-      TOXENV: "C:\\Python34-x64\\python.exe"
       DISTUTILS_USE_SDK: "1"
 
 #    - PYTHON: "C:\\Python35-x64"
@@ -33,4 +32,4 @@ install:
     "%PYTHON%\\python.exe -m pip install tox"
 
 test_script:
-    "build.cmd %PYTHON%\\Scripts\\tox.exe"
+    "set PATH=%PYTHON%;%PATH% & build.cmd %PYTHON%\\Scripts\\tox.exe"
