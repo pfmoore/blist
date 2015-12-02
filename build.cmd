@@ -23,5 +23,5 @@ echo ----------------------------------------------------------------------
 "%PYTHON%\python.exe" -c "import os; print('DISTUTILS_USE_SDK' in os.environ and 'MSSdk' in os.environ)"
 echo ----------------------------------------------------------------------
 
-set TOX_TESTENV_PASSENV=DISTUTILS_USE_SDK MSSdk
+set TOX_TESTENV_PASSENV=DISTUTILS_USE_SDK MSSdk INCLUDE LIB
 CALL %*
