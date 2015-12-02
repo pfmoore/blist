@@ -19,5 +19,7 @@ IF "%DISTUTILS_USE_SDK%"=="1" (
 echo ----------------------------------------------------------------------
 set
 echo ----------------------------------------------------------------------
+"%PYTHON%\python.exe" -c "from distutils.msvc9compiler import MSVCCompiler; print(MSVCCompiler().find_exe('cl.exe'))"
+echo ----------------------------------------------------------------------
 
 CALL %*
